@@ -19,13 +19,11 @@ namespace AOC21
 			numbers = Array.ConvertAll(lines[0].Split(','), s => int.Parse(s));
 
 			List<int> board = new List<int>();
-			int count = 0;
 			for (int i = 2; i < lines.Length; i++)
 			{
 				if (lines[i] == "")
 				{
 					boards.Add(board);
-					count++;
 					board = new List<int> (); ;
 					continue;
 				}
@@ -52,7 +50,6 @@ namespace AOC21
 						int sum = 0;
 						for (int j = 0; j < boards[i].Count; j++)
 						{
-							
 							if (j % 5 == 0) Console.WriteLine();
 							Console.Write(boards[i][j] + " ");
 							if (boards[i][j] != -1)
@@ -60,7 +57,6 @@ namespace AOC21
 								sum += boards[i][j];
 							}
 						}
-						
 						Console.WriteLine(sum * number);
 						boards.RemoveAt(i);
 					}
@@ -84,23 +80,16 @@ namespace AOC21
 				int sumHorizontal = 0;
 				for (int j = 0; j < 5; j++)
 				{
-					 
 					int value = board[index];
 					index++;
 					SumsVertical[j] += value;
 					sumHorizontal += value;
 				}
-				if (sumHorizontal == -5)
-				{
-					return true;
-				}
+				if (sumHorizontal == -5) return true;
 			}
 			foreach (var sum in SumsVertical)
 			{
-				if (sum == -5)
-				{
-					return true;
-				}
+				if (sum == -5) return true;
 			}
 			return false;
 		}
