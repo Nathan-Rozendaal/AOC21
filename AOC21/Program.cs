@@ -6,7 +6,7 @@ namespace AOC21
 	{
 		static void Main(string[] args)
 		{
-			var day = new Day6();
+			var day = new Day7();
 			day.run();
 		}
 	}
