@@ -48,7 +48,7 @@ namespace AOC21
 			}
 			var basins = lowPoints.Values.ToList();
 			basins.Sort();
-			Console.WriteLine(basins[basins.Count-1]* basins[basins.Count - 2] * basins[basins.Count - 3]);
+			Console.WriteLine(basins[^1] * basins[^2] * basins[^3]);
 		}
 		private void flow(Vector2 coord)
 		{
